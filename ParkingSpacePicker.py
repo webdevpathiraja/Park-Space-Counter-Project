@@ -3,11 +3,16 @@ import pickle
 
 # width = 157-50, height = 240-192
 width, height = 107, 48
-positionList = []
+
+try:
+    # load alr saved parking positions if file exists
+    with open('CarParkPosition', 'wb') as f:
+        positionList = pickle.load(f)
+except:
+    positionList = []  # initialize empty list if file doesn't exist or fails to load
 
 
 def mouseclick(events, x, y, flags, params):
-
     # left-click to select a parking space
     if events == cv2.EVENT_LBUTTONDOWN:
         positionList.append((x, y))
