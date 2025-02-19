@@ -9,6 +9,16 @@ with open('CarParkPosition', 'rb') as f:
 
 width, height = 107, 48
 
+def checkParkingSpace():
+    for position in positionList:
+        x, y = position
+
+
+        imgCrop = img[y: y + height, x: x + width]
+        cv2.imshow(str(x*y), imgCrop)
+
+
+
 # Check if the video was opened correctly
 if not capture.isOpened():
     print("Error: Unable to open video file.")
@@ -19,9 +29,11 @@ while True:
         capture.set(cv2.CAP_PROP_POS_FRAMES, 0)
 
     success, img = capture.read()
+    checkParkingSpace()
 
     for position in positionList:
         cv2.rectangle(img, position, (position[0] + width, position[1] + height), (255, 0, 255), 2)
+
 
 
 
