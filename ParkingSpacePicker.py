@@ -6,7 +6,7 @@ width, height = 107, 48
 
 try:
     # load alr saved parking positions if file exists
-    with open('CarParkPosition', 'wb') as f:
+    with open('CarParkPosition', 'rb') as f:
         positionList = pickle.load(f)
 except:
     positionList = []  # initialize empty list if file doesn't exist or fails to load
@@ -24,6 +24,8 @@ def mouseclick(events, x, y, flags, params):
             if x1 < x < x1 + width and y1 < y < y1 + height:
                 positionList.pop(i)
 
+    with open('CarParkPosition', 'wb') as f:
+        pickle.dump(positionList, f)
 
 while True:
     img = cv2.imread('carParkImg.png')
