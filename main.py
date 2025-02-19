@@ -19,6 +19,8 @@ def checkParkingSpace():
 
 
 
+
+
 # Check if the video was opened correctly
 if not capture.isOpened():
     print("Error: Unable to open video file.")
@@ -29,6 +31,11 @@ while True:
         capture.set(cv2.CAP_PROP_POS_FRAMES, 0)
 
     success, img = capture.read()
+    imGray = cv2.cvtColor(img, cv2.COLOR_BGRA2GRAY)
+    imgBlur = cv2.GaussianBlur(imGray, (3, 3), 1)
+    imgThreshold = cv2.adaptiveThreshold(imgBlur, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 25, 16)
+
+
     checkParkingSpace()
 
     for position in positionList:
@@ -43,6 +50,9 @@ while True:
         break
 
     cv2.imshow("Car Park", img)
+    cv2.imshow("Car Park Blur", imgBlur)
+    cv2.imshow("Car Park Threshold", imgThreshold)
+
 
     # Wait for key press to exit
     if cv2.waitKey(10) & 0xFF == ord('q'):  # Press 'q' to exit
