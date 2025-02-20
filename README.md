@@ -14,11 +14,11 @@ This project is a real-time **Parking Space Detection & Counter System** that pr
 
 
 ## 👷🏽‍♀️ Technologies Used 🪜
-- **Python**  
-- **OpenCV**  
-- **NumPy**  
-- **cvZone** (for real-time object detection)  
-- **Pickle** (for storing parking space positions)  
+- **Python** (Core programming language for this project.) 
+- **OpenCV** (Handles real-time video processing and image analysis.)
+- **NumPy** (Optimizes numerical operations for better efficiency.)
+- **cvZone** (Enhances image processing and real-time object detection.)  
+- **Pickle** ( Stores and loads predefined parking space positions.)  
 
 ## Installation  
 ### Prerequisites  
@@ -38,7 +38,8 @@ pip install opencv-python numpy cvzone
 5️⃣ Press **`q`** to exit the program.  
 
 ## Future Improvements 🔥
-🚀 **Enhancing accuracy** using deep learning (CNNs)  
-🚀 **Adding number plate recognition** for reserved spots  
-🚀 **Deploying on Raspberry Pi** for edge-based processing  
-🚀 **Supporting real-time camera feeds** for live monitoring  
+🚀 **Deep Learning Integration** – Implementing CNNs for enhanced accuracy.
+🚀 **Number Plate Recognition** – Automating reserved spot detection. 
+🚀 **Raspberry Pi Deployment** – Enabling efficient real-time processing.
+🚀 **Live Camera Feed Support** – Moving beyond pre-recorded videos for real-time security system integration.
+ 
