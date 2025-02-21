@@ -23,6 +23,7 @@ def checkParkingSpace(imgProcess):
 
         # Crop the image to the parking space area
         imgCrop = imgProcess[y: y + height, x: x + width]
+        # cv2.imshow(str(x * y), imgCrop)
 
         # Count non-zero pixels in the cropped image (indicates presence of a car)
         count = cv2.countNonZero(imgCrop)
@@ -60,11 +61,17 @@ while True:
     success, img = capture.read()
 
     # Convert image to grayscale and apply Gaussian blur
-    imGray = cv2.cvtColor(img, cv2.COLOR_BGRA2GRAY)
-    imgBlur = cv2.GaussianBlur(imGray, (3, 3), 1)
+    imgGray = cv2.cvtColor(img, cv2.COLOR_BGRA2GRAY)
+    imgBlur = cv2.GaussianBlur(imgGray, (3, 3), 1)
+
+    # Apply Canny edge detection
+    edges = cv2.Canny(imgGray, 50, 150)
 
     # Apply adaptive thresholding for better image processing
     imgThreshold = cv2.adaptiveThreshold(imgBlur, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 25, 16)
+
+    # Combine thresholded image with edges for better feature extraction
+    imgThreshold = cv2.addWeighted(imgThreshold, 1, edges, 1, 0)
 
     # Apply median blur to reduce noise
     imgMedian = cv2.medianBlur(imgThreshold, 5)
@@ -83,6 +90,9 @@ while True:
 
     # Display the processed image
     cv2.imshow("Car Park", img)
+
+    # cv2.imshow("ImgBlur", imgBlur)
+    # cv2.imshow("ImageThres", imgMedian)
 
     # Wait for key press to exit
     if cv2.waitKey(10) & 0xFF == ord('q'):

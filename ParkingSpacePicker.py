@@ -11,6 +11,7 @@ try:
 except:
     positionList = []  # Initialize an empty list if file doesn't exist or loading fails
 
+
 def mouseclick(events, x, y, flags, params):
     # Left-click to select a parking space
     if events == cv2.EVENT_LBUTTONDOWN:
@@ -27,6 +28,7 @@ def mouseclick(events, x, y, flags, params):
     with open('CarParkPosition', 'wb') as f:
         pickle.dump(positionList, f)
 
+
 while True:
     # Load the car park image
     img = cv2.imread('carParkImg.png')
@@ -42,4 +44,5 @@ while True:
     cv2.setMouseCallback("Car Park", mouseclick)
 
     # Wait for a key press (1 ms delay)
-    cv2.waitKey(1)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
