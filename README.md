@@ -1,39 +1,45 @@
-# Parking Space Counter
+# 🚍⛳ Parking Space Counter 🚕⛳
 
-## Overview
-This project is a parking space detection and counter system that processes a video feed to determine available and occupied parking spots using OpenCV and image processing techniques.
+## Overview  
+This project is a real-time **Parking Space Detection & Counter System** that processes video feeds to determine available and occupied parking spots using **OpenCV** and image processing techniques. It provides an efficient, lightweight solution without relying on pre-trained machine learning models.  
 
-## Features
-- Reads a video feed to detect parking spaces.
-- Uses adaptive thresholding and morphological operations for accurate space detection.
-- Highlights occupied and available parking spaces with different colors.
-- Displays a live count of available spaces.
+## Features  
+⭕ **Real-time parking space detection** from a video feed  
+⭕ **Adaptive thresholding & contour detection** for accurate space identification 
 
-## Technologies Used
-- Python
-- OpenCV
-- NumPy
-- cvzone
-- Pickle (for storing parking space positions)
+⭕ **Live counter** displaying available parking slots  
+⭕ **Color-coded visualization**:  
+   - ❌ **Red** – Occupied  
+   - ✅ **Green** – Available  
 
-## Installation
-### Prerequisites
-Ensure you have Python installed. Then, install the required dependencies:
+
+## 👷🏽‍♀️ Technologies Used 🪜
+- **Python** (Core programming language for this project.) 
+- **OpenCV** (Handles real-time video processing and image analysis.)
+- **NumPy** (Optimizes numerical operations for better efficiency.)
+- **cvZone** (Enhances image processing and real-time object detection.)  
+- **Pickle** ( Stores and loads predefined parking space positions.)  
+
+## Installation  
+### Prerequisites  
+Ensure you have **Python** installed, then install dependencies:  
 ```sh
 pip install opencv-python numpy cvzone
-```
+```  
 
-## Usage
-1. Place your parking lot video file in the project directory.
-2. Mark parking spaces using the provided interface.
-3. Run the script:
+## ⭕ Usage  
+1️⃣ Place your **parking lot video file** in the project directory.  
+2️⃣ Mark parking spaces using the provided interface.  
+3️⃣ Run the script:  
    ```sh
    python main.py
-   ```
-4. The system will process the video and display real-time parking occupancy.
-5. Press `q` to exit the program.
+   ```  
+4️⃣ The system will **process the video & display real-time parking occupancy**.  
+5️⃣ Press **`q`** to exit the program.  
 
-## Future Improvements
-- Enhance detection accuracy with machine learning models.
-- Support for real-time camera feeds.
-
+## Future Improvements 🔥
+🚀 **Deep Learning Integration** – Implementing CNNs for enhanced accuracy.
+🚀 **Number Plate Recognition** – Automating reserved spot detection. 
+🚀 **Raspberry Pi Deployment** – Enabling efficient real-time processing.
+🚀 **Live Camera Feed Support** – Moving beyond pre-recorded videos for real-time security system integration.
+ 
